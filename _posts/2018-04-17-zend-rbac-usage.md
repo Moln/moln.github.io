@@ -1,30 +1,30 @@
 ---
 layout: default
-title: Zend Rbac Ê¹ÓÃ³¡ºÏ
+title: Zend Rbac ä½¿ç”¨åœºåˆ
 ---
 
 
-¶ÔÓÚ zend-permission ×é¼şÓ¦ÓÃ, ÓÃÓÚ¼òµ¥µÄÒµÎñÈ·ÊµÓÃ×é¼şÓĞµã†ªàÂ,
+å¯¹äº zend-permission ç»„ä»¶åº”ç”¨, ç”¨äºç®€å•çš„ä¸šåŠ¡ç¡®å®ç”¨ç»„ä»¶æœ‰ç‚¹å•°å—¦,
 
-±ÈÈç:
-±í persmissions  ×Ö¶Î id, role_id, permission
-±í roles  ×Ö¶Î id, role, desc
-ÔÚÒµÎñÊµÏÖÉÏÖ±½Ó:
+æ¯”å¦‚:
+è¡¨ persmissions  å­—æ®µ id, role_id, permission
+è¡¨ roles  å­—æ®µ id, role, desc
+åœ¨ä¸šåŠ¡å®ç°ä¸Šç›´æ¥:
 
 ```
 select * from roles where role='member';
 select * from permissions where role = '$role_id' and permission='article.view'
 ```
 
-²éÑ¯³ö½á¹û¾ÍÓĞÈ¨ÏŞ, Ã»ÓĞ¾ÍÃ»È¨ÏŞ
+æŸ¥è¯¢å‡ºç»“æœå°±æœ‰æƒé™, æ²¡æœ‰å°±æ²¡æƒé™
 
-Rbac ÊÇÓöµ½¸´ÔÓµÄ¹ØÏµÇé¿ö. ±ÈÈç¸¸×Ó¹ØÏµµÄÊ±ºò, ¾ÍÅÉÉÏÓÃ³¡ÁË.
+Rbac æ˜¯é‡åˆ°å¤æ‚çš„å…³ç³»æƒ…å†µ. æ¯”å¦‚çˆ¶å­å…³ç³»çš„æ—¶å€™, å°±æ´¾ä¸Šç”¨åœºäº†.
 
-±ÈÈç:
+æ¯”å¦‚:
 
-±í persmissions  ×Ö¶Î id, role_id, permission
+è¡¨ persmissions  å­—æ®µ id, role_id, permission
 
-±í roles  ×Ö¶Î
+è¡¨ roles  å­—æ®µ
 ```
 id, role, parent_id, desc
 1,member,0,
@@ -34,25 +34,25 @@ id, role, parent_id, desc
 ...
 ```
 
-¼ÙÈçÓÃ»§¶à´Ó½ÇÉ«('editor', 'executor'), ´¦ÀíÁ÷³ÌÊÇ:
-1. µÃËùÓĞ½ÇÉ«, °üÀ¨¸¸¼¶½ÇÉ«¶¼²é³öÀ´
+å‡å¦‚ç”¨æˆ·å¤šä»è§’è‰²('editor', 'executor'), å¤„ç†æµç¨‹æ˜¯:
+1. å¾—æ‰€æœ‰è§’è‰², åŒ…æ‹¬çˆ¶çº§è§’è‰²éƒ½æŸ¥å‡ºæ¥
    ```
    select * from roles where role='editor'
    select * from roles where role='executor'
    select * from roles where role='tester'
    ```
 
-2. È»ºó±éÀú½ÇÉ«°ÑËùÓĞ½ÇÉ«È¨ÏŞ¶¼É¨¸ö±é, Ö±µ½²é³öÓĞÈ¨ÏŞÎªÖ¹
+2. ç„¶åéå†è§’è‰²æŠŠæ‰€æœ‰è§’è‰²æƒé™éƒ½æ‰«ä¸ªé, ç›´åˆ°æŸ¥å‡ºæœ‰æƒé™ä¸ºæ­¢
    ```
    select * from permissions where role_id = '$id1' and permission='article.view'
    ...
    select * from permissions where role_id = '$idN' and permission='article.view'
    ```
 
-ÕâÖÖÇé¿öÈç¹û½ÇÉ«ÌåÏµÅÓ´ó, 1. PHP´¦Àíµİ¹éÂß¼­, 2. ½ÇÉ«ºÍÈ¨ÏŞ¹ØÏµ¶àµÄ»°,ÔÚ²éÑ¯ÉÏÊÇºÜ·Ñ¾¢.
+è¿™ç§æƒ…å†µå¦‚æœè§’è‰²ä½“ç³»åºå¤§, 1. PHPå¤„ç†é€’å½’é€»è¾‘, 2. è§’è‰²å’Œæƒé™å…³ç³»å¤šçš„è¯,åœ¨æŸ¥è¯¢ä¸Šæ˜¯å¾ˆè´¹åŠ².
 
-Rbac ÕâÖÖÉè¼Æ¾ÍÅÉÉÏÓÃ³¡ÁË, ²»ÓÃÄãĞ´µİ¹éÂß¼­, 
-µ«ÔÚÊı¾İ²éÑ¯ÉÏ×îºÃ°ÑÊı¾İ¶¼²é³öÀ´»º´æÆğÀ´.
+Rbac è¿™ç§è®¾è®¡å°±æ´¾ä¸Šç”¨åœºäº†, ä¸ç”¨ä½ å†™é€’å½’é€»è¾‘, 
+ä½†åœ¨æ•°æ®æŸ¥è¯¢ä¸Šæœ€å¥½æŠŠæ•°æ®éƒ½æŸ¥å‡ºæ¥ç¼“å­˜èµ·æ¥.
 
 ```
 select * from roles;
