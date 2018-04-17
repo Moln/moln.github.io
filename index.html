@@ -4,7 +4,7 @@ title: 我的Blog
 ---
 
 <h2>POSTS</h2>
-<p>最新文章</p
+
 <ul>
 {% for post in site.posts %}
 <li>[<time>{{ post.date | date_to_string }}</time>]<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
