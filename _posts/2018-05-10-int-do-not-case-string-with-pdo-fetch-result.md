@@ -1,7 +1,7 @@
----------
+---
 layout: default
 title: PDO fetch 结果int类型不强转string
----------
+---
 
 `PDO::fetch` 结果字段类型都被强转string.
 
