@@ -3,7 +3,8 @@ layout: default
 title: PDO fetch 结果int类型不强转string
 ---
 
-`PDO::fetch` 结果字段类型都被强转string.
+
+在使用 `PDO::fetch` 结果字段类型都被强转string.
 
 需要设置PDO选项
 
