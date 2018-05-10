@@ -23,3 +23,6 @@ try {
     echo 'Connection failed: ' . $e->getMessage();
 }
 ```
+
+相关参考:
+https://laravel-china.org/topics/1364/laravel-db-query-is-how-to-achieve-the-automatic-conversion-of-the-field-type
