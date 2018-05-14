@@ -13,10 +13,8 @@ PHP 框架很多，本次先拿非编译的框架对比:
 - symfony v4 / silex
 - laravel v5
 - Yii v2
-- ThinkPHP v5
-- CodeIgniter v3
 - CakePHP v3
-- Lumen 
+- Lumen v5
 
 主要探讨的点:
 
