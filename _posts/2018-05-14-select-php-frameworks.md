@@ -81,10 +81,10 @@ PHP 框架很多，本次先拿非编译的框架对比:
 > 
 > 以下皆为生产环境配置, php 开启 opcache 扩展
 
-| Frameworks      | 内存使用<br>_(在Action中输出内存使用)_ | `webbench -c 100 -t 10` |
-|-----------------|--------------------------------------|-----------------------------------------------|
-| Nginx 静态HTML  |  -        | Speed=2158812 pages/min, 8887110 bytes/sec. <br /> Requests: 359802 susceed, 0 failed. |
-| PHP(无框架)     | 386,944    | Speed=1903872 pages/min, 5076992 bytes/sec. <br /> Requests: 317312 susceed, 0 failed. |
+| Frameworks      | 单个请求内存使用<br>_(在Action中输出内存使用)_<br>`memory_get_usage()` | `webbench -c 100 -t 10` |
+|-----------------|---------------------------------------------------------------------|--------------------------|
+| Nginx 静态HTML  |   -       | Speed=2158812 pages/min, 8887110 bytes/sec. <br /> Requests: 359802 susceed, 0 failed. |
+| PHP(无框架)     | 386,944    |  Speed=1903872 pages/min, 5076992 bytes/sec. <br /> Requests: 317312 susceed, 0 failed. |
 | zend-mvc        | 1,197,128 | Speed=153606 pages/min, 412176 bytes/sec. <br /> Requests: 25601 susceed, 0 failed. |
 | zend-expressive | 709,016   | Speed=447930 pages/min, 1194480 bytes/sec. <br /> Requests: 74655 susceed, 0 failed. |
 | symfony         | 2,260,808 | Speed=62874 pages/min, 244160 bytes/sec. <br /> Requests: 10479 susceed, 0 failed. |
