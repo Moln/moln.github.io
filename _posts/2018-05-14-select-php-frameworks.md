@@ -81,15 +81,15 @@ PHP 框架很多，本次先拿非编译的框架对比:
 > 
 > 以下皆为生产环境配置, php 开启 opcache 扩展
 
-| Frameworks      | 单个请求内存使用<br>_(在Action中输出内存使用)_<br>`memory_get_usage()` | `webbench -c 100 -t 10` |
-|-----------------|---------------------------------------------------------------------|--------------------------|
-| Nginx 静态HTML  |   -       | Speed=2158812 pages/min, 8887110 bytes/sec. <br /> Requests: 359802 susceed, 0 failed. |
-| PHP(无框架)     | 386,944    |  Speed=1903872 pages/min, 5076992 bytes/sec. <br /> Requests: 317312 susceed, 0 failed. |
-| zend-mvc        | 1,197,128 | Speed=153606 pages/min, 412176 bytes/sec. <br /> Requests: 25601 susceed, 0 failed. |
-| zend-expressive | 709,016   | Speed=447930 pages/min, 1194480 bytes/sec. <br /> Requests: 74655 susceed, 0 failed. |
-| symfony         | 2,260,808 | Speed=62874 pages/min, 244160 bytes/sec. <br /> Requests: 10479 susceed, 0 failed. |
-| laravel         | 1,686,408 | Speed=64020 pages/min, 1043661 bytes/sec. <br /> Requests: 10670 susceed, 0 failed. |
-| slim            | 644,032   | Speed=468744 pages/min, 2562467 bytes/sec. <br /> Requests: 78124 susceed, 0 failed. |
-| yii             | 1,018,520 | Speed=409410 pages/min, 1098583 bytes/sec. <br /> Requests: 68235 susceed, 0 failed. |
-| cakephp         | 1,579,392 | Speed=121176 pages/min, 325139 bytes/sec. <br /> Requests: 20196 susceed, 0 failed. |
-| lumen           | 710,208   | Speed=459258 pages/min, 1484934 bytes/sec. <br /> Requests: 76543 susceed, 0 failed. |
+| Frameworks         | 单个请求内存使用<br>_(在Action中输出内存使用)_<br>`memory_get_usage()` | `webbench -c 100 -t 10` |
+|--------------------|---------------------------------------------------------------------|--------------------------|
+| Nginx 静态HTML     |   -       | Speed=2158812 pages/min, 8887110 bytes/sec. <br /> Requests: 359802 susceed, 0 failed. |
+| PHP(无框架)        | 386,944    |  Speed=1903872 pages/min, 5076992 bytes/sec. <br /> Requests: 317312 susceed, 0 failed. |
+| zend-mvc:v3        | 1,197,128 | Speed=153606 pages/min, 412176 bytes/sec. <br /> Requests: 25601 susceed, 0 failed. |
+| zend-expressive:v3 | 709,016   | Speed=447930 pages/min, 1194480 bytes/sec. <br /> Requests: 74655 susceed, 0 failed. |
+| symfony:v4         | 2,260,808 | Speed=62874 pages/min, 244160 bytes/sec. <br /> Requests: 10479 susceed, 0 failed. |
+| laravel:v5         | 1,686,408 | Speed=64020 pages/min, 1043661 bytes/sec. <br /> Requests: 10670 susceed, 0 failed. |
+| slim:v3            | 644,032   | Speed=468744 pages/min, 2562467 bytes/sec. <br /> Requests: 78124 susceed, 0 failed. |
+| yii:v2             | 1,018,520 | Speed=409410 pages/min, 1098583 bytes/sec. <br /> Requests: 68235 susceed, 0 failed. |
+| cakephp:v3         | 1,579,392 | Speed=121176 pages/min, 325139 bytes/sec. <br /> Requests: 20196 susceed, 0 failed. |
+| lumen:v5           | 710,208   | Speed=459258 pages/min, 1484934 bytes/sec. <br /> Requests: 76543 susceed, 0 failed. |
