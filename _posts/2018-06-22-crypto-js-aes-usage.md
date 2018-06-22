@@ -4,6 +4,9 @@ title: crypto-js AES 使用经验
 ---
 
 
+crypto-js AES 使用经验
+=====================
+
 关于 `crypto-js` AES的使用, encrypt 方法的 key 参数, 官方提供的例子 key 是string 类型传入, 与其它语言string 密钥不同, 很容易误导大家.
 
 **官方例子:**
@@ -18,7 +21,45 @@ console.log(ciphertext.toString()); //这里每次得到的结果都是不一样
 var bytes  = CryptoJS.AES.decrypt(ciphertext.toString(), 'secret key 123');
 ```
 
-网上有其它例子, 提供了AES的"正确使用":
+以上执行每次得到的加密结果都不一样, 是属于随机密钥.
+
+那官方提供的例子, key 为 string 类型, 会经过什么样的处理呢?
+
+这里先提供下 `CryptoJS.AES.encrypt` 的参数说明
+
+```javascript
+/**
+ * 加密消息
+ *
+ * @param {WordArray|string} message 加密字符串
+ * @param {WordArray|string} key     密码
+ * @param {Object} cfg               (可选) 加密配置选项.
+ *
+ * Default cfg:
+ *   {
+ *      iv: WordArray,               // IV
+ *      mode: CryptoJS.mode.CBC,     // mode 支持 CBC,CFB,CTR,ECB,OFB
+ *      padding: CryptoJS.pad.Pkcs7, // padding 支持 Pkcs7,AnsiX923,Iso10126, NoPadding,ZeroPadding
+ *      kdf: CryptoJS.kdf.OpenSSL,   // EvpKDF
+ *   }
+ *
+ * @return {CipherParams} A cipher params object.
+ */
+CryptoJS.AES.encrypt(str, key, cfg);
+```
+
+如果 key 为 string 类型, 会经过 `CryptoJS.lib.PasswordBasedCipher` 处理, 使用 `cfg.kdf` 生成新的 `WordArray`, 
+`cfg.kdf` 默认是 `CryptoJS.kdf.OpenSSL`(即 `EvpKDF`).
+
+**以下是相应代码执行的stack**
+
+- https://github.com/brix/crypto-js/blob/develop/src/cipher-core.js#L176-L178
+- https://github.com/brix/crypto-js/blob/develop/src/cipher-core.js#L812
+
+CryptoJS与PHP的加解密使用
+------------------------
+
+网上有其它例子, 提供了`CryptoJS.AES`的"正确使用":
 
 ```javascript
 var str = '123456';
@@ -57,40 +98,6 @@ echo base64_encode($encrypted), "\n"; //9FTrAdsYkbHrRsZ1A0IsDw==
 
 echo openssl_decrypt($encrypted, 'aes-128-cbc',$key , $options, $iv), "\n";
 ```
-
-那官方提供的例子, key 为 string 类型, 会经过什么样的处理呢?
-
-这里先提供下 `CryptoJS.AES.encrypt` 的参数说明
-
-```javascript
-/**
- * 加密消息
- *
- * @param {WordArray|string} message 加密字符串
- * @param {WordArray|string} key     密码
- * @param {Object} cfg               (可选) 加密配置选项.
- *
- * Default cfg:
- *   {
- *      iv: WordArray,               // IV
- *      mode: CryptoJS.mode.CBC,     // mode 支持 CBC,CFB,CTR,ECB,OFB
- *      padding: CryptoJS.pad.Pkcs7, // padding 支持 Pkcs7,AnsiX923,Iso10126, NoPadding,ZeroPadding
- *      kdf: CryptoJS.kdf.OpenSSL,   // EvpKDF
- *   }
- *
- * @return {CipherParams} A cipher params object.
- */
-CryptoJS.AES.encrypt(str, key, cfg);
-```
-
-如果 key 为 string 类型, 会经过 `CryptoJS.lib.PasswordBasedCipher` 处理, 使用 `cfg.kdf` 生成新的 `WordArray`, 
-`cfg.kdf` 默认是 `CryptoJS.kdf.OpenSSL`(即 `EvpKDF`).
-
-**以下是相应代码执行的stack**
-
-- https://github.com/brix/crypto-js/blob/develop/src/cipher-core.js#L176-L178
-- https://github.com/brix/crypto-js/blob/develop/src/cipher-core.js#L812
-
 
 加密模式说明及IV设置误区
 -----------------------
