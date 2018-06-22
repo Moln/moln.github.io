@@ -63,9 +63,10 @@ CryptoJS与PHP的加解密使用
 
 ```javascript
 var str = '123456';
-var key = '0123456789abcdef'; // 密钥 16 位
-var iv = 'abcdef0123456789';  // 初始向量 initial vector 16 位
+var key = '0123456789abcdef'; // 密钥, AES-128 需 16 字符, AES-256 需要32个字符, 
+var iv = 'abcdef0123456789';  // 初始向量 initial vector 16 个字符
 
+// key = fillKey(key); //如果密码不足 16位, 需 `\x00` 填充
 key = CryptoJS.enc.Utf8.parse(key);
 iv = CryptoJS.enc.Utf8.parse(iv);
 
@@ -82,6 +83,24 @@ console.log(encrypted); // 9FTrAdsYkbHrRsZ1A0IsDw==
 
 var decrypted = CryptoJS.AES.decrypt(encrypted, key, options);
 decrypted = CryptoJS.enc.Utf8.stringify(decrypted); // 转换为 utf8 字符串
+
+/**
+ * 密码 `\x00` 填充
+ * @param {string} key     密码
+ * @param {Number} keySize 填充长度, 值: 128, 256
+ */
+function fillKey(key, keySize) {
+    keySize = keySize || 128;
+    var filledKey = Buffer.alloc(keySize / 8);
+    var keys = Buffer.from(key);
+    if (keys.length < filledKey.length) {
+        for (var i = 0; i < filledKey.length; i++) {
+            filledKey[i] = keys[i];
+        }
+    }
+
+    return filledKey;
+}
 ```
 
 对应 PHP 使用:
