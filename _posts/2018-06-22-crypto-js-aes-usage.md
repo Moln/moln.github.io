@@ -3,6 +3,7 @@ layout: default
 title: crypto-js AES 使用经验
 ---
 
+
 关于 `crypto-js` AES的使用, encrypt 方法的 key 参数, 官方提供的例子 key 是string 类型传入, 与其它语言string 密钥不同, 很容易误导大家.
 
 **官方例子:**
