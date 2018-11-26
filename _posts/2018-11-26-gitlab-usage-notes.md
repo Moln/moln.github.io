@@ -3,6 +3,9 @@ layout: default
 title: gitlab 使用笔记
 ---
 
+Gitlab 使用笔记
+===============
+
 
 CI/CD
 -----
