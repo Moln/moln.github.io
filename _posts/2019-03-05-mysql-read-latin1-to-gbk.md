@@ -29,7 +29,7 @@ CREATE TABLE `users` (
 
 PDO 连接数据库时, 连接的编码方式需要是 laint1, 查询结果读取出来就是 gbk 了.
 
-```
+```php
 $dsn = 'mysql:dbname=test;host=127.0.0.1;charset=latin1;';
 $user = 'root';
 $password = '';
@@ -56,7 +56,7 @@ print_r($res);
 
 PDO 连接数据库时, 连接的编码方式是 utf8, 查询结果读取结果进行转码 `Windows-1252`.
 
-```
+```php
 $dsn = 'mysql:dbname=test;host=127.0.0.1;charset=utf8;';
 $user = 'root';
 $password = '';
