@@ -81,14 +81,17 @@ E..o$...@.-.dd.....??????????????????????????????????????????????????
 1. Dnsmasq 有没有相关不解析IPV6 的设置?
    - 个人不熟悉该服务,放弃
    
-2. Linux 系统有没有相关参数禁用所有 ipv6的域名解析. 
-   - 这似乎是应用客户端发起的跟 Linux 无法
+2. Linux 系统层面. 
+   - 尚未了解是否有相关参数禁用所有 ipv6的域名解析.
+   - 有相关 dns 设置可以解决ipv6响应慢, `/etc/resolve.conf` 增加 `options single-request-reopen` (ipv6重新建个请求端口解析, 具体看官方解释) . 参考: ([CentOS 7 网页加载速度慢的解决办法](https://www.jianshu.com/p/d5b913783d4f))
    
 3. 在应用服务代码请求客户端上解决
    - 应用服务代码使用PHP编写, 客户端使用 curl 扩展库, 最终通过 curl 选项设置 `CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4` 解决.
-   
-## 其它
+
+## 其它参考
 
 - DNS缓存可以参考使用 nscd 或 dnsmasq
 - [Linux 下开启缓存服务 NSCD](https://www.hi-linux.com/posts/9461.html)
 - [利用 Dnsmasq 部署 DNS 服务](https://www.hi-linux.com/posts/30947.html)
+- [CentOS 7 网页加载速度慢的解决办法](https://www.jianshu.com/p/d5b913783d4f)
+- [Resolving hostname takes 5 seconds](https://unix.stackexchange.com/questions/290987/resolving-hostname-takes-5-seconds)
