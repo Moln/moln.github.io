@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 影响mysql insert 性能的参数
 ---
 

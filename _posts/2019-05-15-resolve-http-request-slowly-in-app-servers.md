@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 应用服务器DNS原因导致网络请求缓慢解决经验
 ---
 

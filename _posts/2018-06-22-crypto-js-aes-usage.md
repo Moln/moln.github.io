@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: crypto-js AES 使用经验
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Mysql 读取 latin1 字符转为 gbk 的几种方式
 ---
 

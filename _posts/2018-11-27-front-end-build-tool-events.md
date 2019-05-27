@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 前端打包工具一些事件
 ---
 

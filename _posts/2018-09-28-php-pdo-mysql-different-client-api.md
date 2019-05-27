@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: PHP pdo_mysql 不同的Client API 区别
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 使用git当作备份工具
 ---
 

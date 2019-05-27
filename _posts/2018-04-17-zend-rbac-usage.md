@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Zend Rbac 使用场合
 ---
 

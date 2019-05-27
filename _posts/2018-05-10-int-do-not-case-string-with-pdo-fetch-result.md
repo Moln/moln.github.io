@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: PDO fetch 结果int类型不强转string
 ---
 
