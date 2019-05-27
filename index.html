@@ -5,8 +5,8 @@ title: 我的Blog
 
 <h2>POSTS</h2>
 
-<ul>
+<ul class="post-list">
 {% for post in site.posts %}
-<li>[<time>{{ post.date | date_to_string }}</time>]<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+<li><span class="time">[{{ post.date | date: "%Y-%m-%d" }}]</span><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
 </ul>
