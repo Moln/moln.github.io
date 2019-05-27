@@ -16,6 +16,10 @@ body {
     display: block;
     text-align: right;
   }
+
+  pre code {
+    background-color: transparent;
+  }
 }
 .post-list li {
   line-height: 3rem;
