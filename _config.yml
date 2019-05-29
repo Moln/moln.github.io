@@ -2,7 +2,7 @@ title: Moln's blog
 lang: zh-cn
 description: My blog
 show_downloads: false
-google_analytics:
+google_analytics: UA-141028192-1
 theme: jekyll-theme-architect
 baseurl: /
 timezone: Asia/Shanghai
