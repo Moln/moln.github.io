@@ -7,8 +7,8 @@ title: 现代PHP框架的选择
 
 PHP 框架很多，本次先拿非编译的框架对比:
 
-- zend-mvc: v3
-- zend-expressive: v3
+- laminas-mvc (zend-mvc): v3
+- mezzio (zend-expressive): v3
 - slim v3
 - symfony v4 / silex
 - laravel v5
@@ -33,7 +33,7 @@ PHP 框架很多，本次先拿非编译的框架对比:
 - 选择性加载. 可以根据项目需要，选择适合你的应用库。
   比如我的项目很小想直接用php的pdo更省事学习曲线低性能更好, 我的另一项目需要doctrine-orm 来更好的维护我的数据模型结构。
 
-在这几点 zend v3, symfony v4, slim, 做的比较好。
+在这几点 laminas, mezzio v3, symfony v4, slim 都做的比较好。
 其它几个框架则都集成了自己库类操作,无法分离。
 
 ### 异步执行支持
